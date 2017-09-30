@@ -4,19 +4,26 @@ Created on 2017年9月20日
 @author: Leo
 """
 
-from bs4 import BeautifulSoup
-from Model.DownloadModel import *
-import urllib.request as ur
-
-# url = "https://www.mongodb.org/dl/win32/x86_64-2008plus-ssl"
-# req = ur.urlopen(url)
-# result = req.read().decode("UTF-8")
-# print(result)
-
 from Controller.Parser import *
 
 
 if __name__ == '__main__':
-    parser = Parser()
+    version = ""
+    print("选择你的版本: (1、Windows(仅支持64位 & 有SSL插件). 2、Linux. 3、Mac OSX(仅支持有SSL插件) )")
+    print("Choose your version: (1、Windows(only 64bits & with SSL). 2、Linux. 3、Mac OSX(with SSL) )")
+    choice = input()
+    if choice == "1":
+        version = "windows"
+        print("您选择的是 %s ." % version)
+    elif choice == "2":
+        version = "linux"
+        print("您选择的是 %s ." % version)
+    elif choice == "3":
+        version = "osx"
+        print("您选择的是 %s ." % version)
+    else:
+        raise ValueError("Illegal Choice you input!")
+
+    parser = Parser(version=version)
     parser.parser()
 

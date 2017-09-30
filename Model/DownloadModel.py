@@ -7,6 +7,7 @@ Created on 2017年9月20日
 
 class EachVersion(object):
     def __init__(self):
+        self.id = None  # id
         self.name = None  # 文件名
         self.link = None  # 下载链接
         self.modified = None  # 修改时间
@@ -17,6 +18,12 @@ class EachVersion(object):
         self.sha256 = None  # SHA256
 
     # Getter Setter
+    def get_id(self):
+        return self.id
+
+    def set_id(self, value):
+        self.id = value
+
     def get_name(self):
         return self.name
 
@@ -66,7 +73,8 @@ class EachVersion(object):
         self.sha256 = value
 
     def __str__(self):
-        return str({"fileName:": self.name,
+        return str({"_id": self.id,
+                    "fileName:": self.name,
                     "downloadLink": self.link,
                     "size:": self.size,
                     "modified:": self.modified,
