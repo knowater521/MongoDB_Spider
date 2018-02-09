@@ -125,7 +125,7 @@ class Parser:
                 each_mgo.set_sha256("")
 
             # 最后set_id
-            each_mgo.set_id(md5_constructor(str(each_mgo)))
+            each_mgo.set_id(md5_constructor(str(each_mgo.get_link())))
 
             # 插入数据
             if mgo.insert_data(each_mgo):
